@@ -18,14 +18,15 @@ export default function Home() {
                 Sobre Mí
               </h2>
               <div className="space-y-6 text-white/90">
-                <p className="text-lg leading-relaxed">
-                  Soy un Ingeniero Mecatrónico apasionado por la innovación y el desarrollo tecnológico. 
-                  Mi objetivo es crear soluciones que combinen mecánica, electrónica y programación para 
-                  optimizar procesos industriales.
+                <p className="text-2xl leading-relaxed">
+                Ingeniero mecatrónico y tecnólogo en automatización industrial con una sólida trayectoria en el diseño, control y optimización de procesos automáticos. Mi especialización incluye sistemas de control, programación de PLCs y HMIs, donde he demostrado un alto nivel de competencia.
+Desde 2024 desempeño el rol de coordinador de mantenimiento, donde superviso indicadores de desempeño, gestiono y desarrollo el talento del personal, planifico mantenimientos preventivos y correctivos, e implemento mejoras en los procesos de mantenimiento. Esta experiencia me ha permitido liderar equipos y contribuir significativamente a la eficiencia operativa de la organización.
+Complemento mis habilidades técnicas con una sólida experiencia en análisis estructural, lo que me permite comprender integralmente los aspectos mecánicos y funcionales de los sistemas que desarrollo. Estoy comprometido con la innovación y la búsqueda de soluciones efectivas ante desafíos complejos en el ámbito industrial.
                 </p>
               </div>
             </div>
           </section>
+          
         );
 
       case 'experience':
@@ -37,17 +38,40 @@ export default function Home() {
               </h2>
               <div className="space-y-8 text-white/90">
                 <div className="border-l-4 border-blue-400 pl-4">
-                  <h3 className="text-xl font-semibold mb-2">Ingeniero Mecatrónico Senior</h3>
-                  <p className="text-blue-300 mb-2">Empresa XYZ | 2020 - Presente</p>
-                  <ul className="list-disc list-inside space-y-2">
-                    <li>Desarrollo de sistemas automatizados</li>
-                    <li>Implementación de soluciones mecatrónicas</li>
-                    <li>Optimización de procesos industriales</li>
+                  <h3 className="text-xl font-semibold mb-2">Coordinador De Mantenimiento</h3>
+                  <p className="text-blue-300 mb-2">EQUIPOS DE PROTECCIÓN INDIVIDUAL S.A.S</p>
+                  <p className="text-white/70 mb-4">2024 - Presente</p>
+                    <ul className="list-disc list-inside space-y-2">
+                    <li>Supervisar y monitorear indicadores de desempeño del área de mantenimiento, asegurando la mejora continua en la eficiencia operativa.</li>
+                    <li>Gestionar y desarrollar el talento del personal a cargo, implementando planes de capacitación y fortaleciendo las competencias del equipo.</li>
+                    <li>Planificar y ejecutar mantenimientos preventivos y correctivos en los sistemas de la empresa, optimizando los recursos y garantizando la disponibilidad de los equipos.</li>
+                  </ul>
+                </div>
+
+                <div className="border-l-4 border-blue-400 pl-4">
+                  <h3 className="text-xl font-semibold mb-2">Asistente de diseño y desarollo</h3>
+                  <p className="text-blue-300 mb-2">EQUIPOS DE PROTECCIÓN INDIVIDUAL S.A.S</p>
+                  <p className="text-white/70 mb-4">Enero 2021 – Diciembre 2022</p>
+                    <ul className="list-disc list-inside space-y-2">
+                    <li>Realizar modelado y diseño en 3D de componentes y prototipos, impulsando la innovación y contribuyendo a la mejora continua de productos.</li>
+                    <li>Desarrollar diseños electrónicos que cumplan con altos estándares de calidad y funcionalidad, garantizando la efectividad de los sistemas de protección.</li>
+                  </ul>
+                </div>
+
+                <div className="border-l-4 border-blue-400 pl-4">
+                  <h3 className="text-xl font-semibold mb-2">Auxiliar de mantenimiento</h3>
+                  <p className="text-blue-300 mb-2">EQUIPOS DE PROTECCION INDIVIDUAL S.A.S</p>
+                  <p className="text-white/70 mb-4"> Junio 2017 – Diciembre 2017</p>
+                    <ul className="list-disc list-inside space-y-2">
+                    <li>Ejecutar el mantenimiento de moldes por inyección, utilizando fresadora y torno CNC para garantizar su óptimo funcionamiento y durabilidad.</li>
+                    
                   </ul>
                 </div>
               </div>
             </div>
+            
           </section>
+          
         );
 
       case 'education':

@@ -40,7 +40,7 @@ export default function Header({ onSectionChange }: HeaderProps) {
               <div className="w-20 h-20 relative rounded-full overflow-hidden p-1 bg-gradient-to-r from-blue-400 to-cyan-400 shadow-2xl hover:shadow-blue-500/50 transition-all duration-300">
                 <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center">
                   <Image
-                    src="/Image/Motor.jpg"
+                    src="/Motor.jpg"
                     alt="Juan Manuel Moncayo"
                     width={72}
                     height={72}

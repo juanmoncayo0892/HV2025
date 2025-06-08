@@ -39,7 +39,7 @@ export default function TitlesPricing() {
               <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              Especialización en Automatización
+              control de precesos automatizados
             </li>
             <li className="flex items-center text-white/90">
               <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -64,9 +64,9 @@ export default function TitlesPricing() {
         {/* Certificaciones */}
         <div className="bg-gradient-to-b from-blue-800/50 to-slate-800/50 backdrop-blur-md rounded-2xl p-8 border border-blue-500/50 shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 transform scale-105">
           <div className="text-center mb-8">
-            <div className="inline-block bg-blue-500 text-white text-sm px-3 py-1 rounded-full mb-2">Certificaciones</div>
-            <h3 className="text-2xl font-bold text-white mb-2">Certificaciones Profesionales</h3>
-            <p className="text-white/70">Actualizado 2024</p>
+            <h3 className="text-2xl font-bold text-white mb-2">Tecnologia</h3>
+            <div className="text-xl font-semibold text-blue-300 mb-2">SENA</div>
+            <p className="text-white/70">2016-2018</p>
           </div>
           <ul className="space-y-4 mb-8">
             <li className="flex items-center text-white/90">
@@ -108,39 +108,21 @@ export default function TitlesPricing() {
         </div>
 
         {/* Cursos y Especializaciones */}
-        <div className="bg-gradient-to-b from-slate-800/50 to-blue-800/50 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-2xl hover:shadow-blue-500/20 transition-all duration-300">
+        <div className="bg-gradient-to-b from-slate-800/50 to-blue-800/50 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 flex flex-col h-full">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-white mb-2">Especializaciones</h3>
-            <div className="text-xl font-semibold text-blue-300 mb-2">Formación Continua</div>
-            <p className="text-white/70">2020 - Presente</p>
+            <h3 className="text-2xl font-bold text-white mb-2">Bachillerato</h3>
+            <div className="text-xl font-semibold text-blue-300 mb-2">Inem Jorge Isaacs</div>
+            <p className="text-white/70">2009</p>
           </div>
           <ul className="space-y-4 mb-8">
             <li className="flex items-center text-white/90">
               <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              Máster en Automatización
-            </li>
-            <li className="flex items-center text-white/90">
-              <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Especialización en IA
-            </li>
-            <li className="flex items-center text-white/90">
-              <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Gestión de Proyectos
-            </li>
-            <li className="flex items-center text-white/90">
-              <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Liderazgo Técnico
+              Academico ciencias
             </li>
           </ul>
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-auto">
             <button 
               onClick={() => handlePdfClick('/pdfs/especializaciones.pdf')}
               className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors duration-300"
