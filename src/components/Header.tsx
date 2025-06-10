@@ -5,35 +5,91 @@ import Image from 'next/image';
 
 interface HeaderProps {
   onSectionChange: (section: string | null) => void;
+  onLanguageChange: (lang: string) => void;
 }
 
-export default function Header({ onSectionChange }: HeaderProps) {
+export default function Header({ onSectionChange, onLanguageChange }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState('es');
+
+  const translations = {
+    es: {
+      about: "Sobre mí",
+      experience: "Experiencia",
+      education: "Educación",
+      skills: "Habilidades",
+      contact: "Contacto",
+      title: "Ingeniero Mecatrónico"
+    },
+    en: {
+      about: "About Me",
+      experience: "Experience",
+      education: "Education",
+      skills: "Skills",
+      contact: "Contact",
+      title: "Mechatronics Engineer"
+    }
+  };
+
+  const t = translations[currentLang as keyof typeof translations];
 
   const handleMenuClick = (section: string) => {
     setIsMenuOpen(false);
     onSectionChange(section);
   };
 
+  const handleLanguageChange = (lang: string) => {
+    setCurrentLang(lang);
+    onLanguageChange(lang);
+  };
+
   return (
     <>
       <header className="fixed top-0 left-0 right-0 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 backdrop-blur-md bg-opacity-95 shadow-xl z-50 border-b border-white/10">
         <div className="container mx-auto px-6 py-6 flex items-center justify-between">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="group p-3 hover:bg-white/10 rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/20"
-            aria-label="Menu"
-          >
-            {isMenuOpen ? (
-              <svg className="w-6 h-6 text-white group-hover:text-blue-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6 text-white group-hover:text-blue-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="group p-3 hover:bg-white/10 rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/20"
+              aria-label="Menu"
+            >
+              {isMenuOpen ? (
+                <svg className="w-6 h-6 text-white group-hover:text-blue-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6 text-white group-hover:text-blue-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+
+            {/* Botones de idioma */}
+            <div className="flex space-x-2">
+              <button
+                onClick={() => handleLanguageChange('es')}
+                className={`px-3 py-1 rounded-lg transition-all duration-300 relative overflow-hidden ${
+                  currentLang === 'es'
+                    ? 'bg-blue-500/80 text-white'
+                    : 'bg-white/10 text-white hover:bg-white/20'
+                }`}
+              >
+                <div className="absolute inset-0 bg-[url('/flags/es.svg')] bg-cover bg-center opacity-20"></div>
+                <span className="relative z-10">ES</span>
+              </button>
+              <button
+                onClick={() => handleLanguageChange('en')}
+                className={`px-3 py-1 rounded-lg transition-all duration-300 relative overflow-hidden ${
+                  currentLang === 'en'
+                    ? 'bg-blue-500/80 text-white'
+                    : 'bg-white/10 text-white hover:bg-white/20'
+                }`}
+              >
+                <div className="absolute inset-0 bg-[url('/flags/en.svg')] bg-cover bg-center opacity-20"></div>
+                <span className="relative z-10">EN</span>
+              </button>
+            </div>
+          </div>
           
           <div className="flex flex-col items-center space-y-3">
             <div className="relative group">
@@ -58,7 +114,7 @@ export default function Header({ onSectionChange }: HeaderProps) {
                 Juan Manuel Moncayo Donoso
               </h1>
               <p className="text-blue-300 text-sm font-medium tracking-wide">
-                Ingeniero Mecatrónico
+                {t.title}
               </p>
             </div>
           </div>
@@ -75,7 +131,7 @@ export default function Header({ onSectionChange }: HeaderProps) {
               {[
                 { 
                   section: 'about',
-                  text: "Sobre mí", 
+                  text: t.about, 
                   icon: (
                     <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -84,7 +140,7 @@ export default function Header({ onSectionChange }: HeaderProps) {
                 },
                 { 
                   section: 'experience',
-                  text: "Experiencia", 
+                  text: t.experience, 
                   icon: (
                     <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0v6a2 2 0 01-2 2H10a2 2 0 01-2-2V6m8 0H8" />
@@ -93,7 +149,7 @@ export default function Header({ onSectionChange }: HeaderProps) {
                 },
                 { 
                   section: 'education',
-                  text: "Educación", 
+                  text: t.education, 
                   icon: (
                     <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -103,7 +159,7 @@ export default function Header({ onSectionChange }: HeaderProps) {
                 },
                 { 
                   section: 'skills',
-                  text: "Habilidades", 
+                  text: t.skills, 
                   icon: (
                     <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -113,7 +169,7 @@ export default function Header({ onSectionChange }: HeaderProps) {
                 },
                 { 
                   section: 'contact',
-                  text: "Contacto", 
+                  text: t.contact, 
                   icon: (
                     <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

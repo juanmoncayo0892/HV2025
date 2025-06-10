@@ -2,7 +2,38 @@
 
 import { useState } from 'react';
 
-export default function TitlesPricing() {
+interface TitlesPricingProps {
+  language?: string;
+}
+
+export default function TitlesPricing({ language = 'es' }: TitlesPricingProps) {
+  const translations = {
+    es: {
+      title: "Educación",
+      degree: "Ingeniería Mecatrónica",
+      institution: "Universidad Autónoma de Occidente",
+      period: "2018 - 2023",
+      description: "Formación en sistemas de control, automatización industrial y desarrollo de soluciones tecnológicas integradas.",
+      technologist: "Tecnología en Automatización Industrial",
+      institution2: "Servicio Nacional de Aprendizaje (SENA)",
+      period2: "2015 - 2017",
+      description2: "Especialización en sistemas de control y automatización de procesos industriales."
+    },
+    en: {
+      title: "Education",
+      degree: "Mechatronics Engineering",
+      institution: "Universidad Autónoma de Occidente",
+      period: "2018 - 2023",
+      description: "Training in control systems, industrial automation, and development of integrated technological solutions.",
+      technologist: "Industrial Automation Technology",
+      institution2: "Servicio Nacional de Aprendizaje (SENA)",
+      period2: "2015 - 2017",
+      description2: "Specialization in control systems and industrial process automation."
+    }
+  };
+
+  const t = translations[language as keyof typeof translations];
+
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
   
   const handlePdfClick = (pdfUrl: string) => {
@@ -13,7 +44,7 @@ export default function TitlesPricing() {
     <div className="container mx-auto px-6 py-12">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
-          Mis Títulos y Certificaciones
+          {t.title}
         </h2>
         <p className="text-white/70 text-lg">
           Conoce mi formación académica y profesional
@@ -24,28 +55,16 @@ export default function TitlesPricing() {
         {/* Título Principal */}
         <div className="bg-gradient-to-b from-slate-800/50 to-blue-800/50 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-2xl hover:shadow-blue-500/20 transition-all duration-300">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-white mb-2">Ingeniería Mecatrónica</h3>
-            <div className="text-xl font-semibold text-blue-300 mb-2">Universidad Unicomfacauca</div>
-            <p className="text-white/70">2016 - 2021</p>
+            <h3 className="text-2xl font-bold text-white mb-2">{t.degree}</h3>
+            <div className="text-xl font-semibold text-blue-300 mb-2">{t.institution}</div>
+            <p className="text-white/70">{t.period}</p>
           </div>
           <ul className="space-y-4 mb-8">
             <li className="flex items-center text-white/90">
               <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              Título de Pregrado
-            </li>
-            <li className="flex items-center text-white/90">
-              <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              control de precesos automatizados
-            </li>
-            <li className="flex items-center text-white/90">
-              <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Proyecto de Grado "Ferula electromecanica para la rehabilitacion de pie caido"
+              {t.description}
             </li>
           </ul>
           <div className="flex justify-center">
@@ -64,34 +83,16 @@ export default function TitlesPricing() {
         {/* Certificaciones */}
         <div className="bg-gradient-to-b from-blue-800/50 to-slate-800/50 backdrop-blur-md rounded-2xl p-8 border border-blue-500/50 shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 transform scale-105">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-white mb-2">Tecnologia</h3>
-            <div className="text-xl font-semibold text-blue-300 mb-2">SENA</div>
-            <p className="text-white/70">2016-2018</p>
+            <h3 className="text-2xl font-bold text-white mb-2">{t.technologist}</h3>
+            <div className="text-xl font-semibold text-blue-300 mb-2">{t.institution2}</div>
+            <p className="text-white/70">{t.period2}</p>
           </div>
           <ul className="space-y-4 mb-8">
             <li className="flex items-center text-white/90">
               <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              Certificación en PLC
-            </li>
-            <li className="flex items-center text-white/90">
-              <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Robótica Industrial
-            </li>
-            <li className="flex items-center text-white/90">
-              <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Control de Procesos
-            </li>
-            <li className="flex items-center text-white/90">
-              <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              IoT y Automatización
+              {t.description2}
             </li>
           </ul>
           <div className="flex justify-center">
